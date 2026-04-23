@@ -1,12 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cdn.pixabay.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      }
     ],
   },
 };

@@ -1,6 +1,10 @@
+import Blog from "@/components/blog/blog";
+
 const page = () => {
     return (
-        <h1>Blog page</h1>
+        <div>
+            <Blog />
+        </div>
     )
 };
 

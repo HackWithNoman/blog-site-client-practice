@@ -1,4 +1,4 @@
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/footer";
 import Navbar from "@/components/navBar/navbar";
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {

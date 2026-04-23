@@ -1,4 +1,4 @@
-import Blog from "@/components/blog";
+import Blog from "@/components/home/blog";
 import Hero from "@/components/hero/hero";
 
 
