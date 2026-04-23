@@ -1,4 +1,4 @@
-import Team from "@/components/team";
+import Team from "@/components/shared/team";
 
 export default function About() {
     return (
