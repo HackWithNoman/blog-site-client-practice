@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-
+import { authClient } from "@/lib/auth-client";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -31,8 +31,11 @@ const Login = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+  const signInWithGoogle = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "http://localhost:3000",
+    });
   };
 
   return (
@@ -89,7 +92,11 @@ const Login = () => {
         <div className="relative isolate flex flex-col items-center">
           <p className="mt-4 font-medium text-xl">Log Now</p>
 
-          <Button className="mt-8 w-full gap-3">
+          <Button
+            className="mt-8 w-full gap-3"
+            variant="outline"
+            onClick={signInWithGoogle}
+          >
             <GoogleLogo />
             Continue with Google
           </Button>
@@ -101,10 +108,7 @@ const Login = () => {
           </div>
 
           <Form {...form}>
-            <form
-              className="w-full space-y-6"
-              onSubmit={form.handleSubmit(onSubmit)}
-            >
+            <form className="w-full space-y-6">
               <FormField
                 control={form.control}
                 name="email"
